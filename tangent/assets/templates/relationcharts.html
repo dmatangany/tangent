@@ -1,0 +1,39 @@
+<div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="header col-sm-4">
+                                <h4 class="title">Relational View</h4>
+                                <p class="category">Age/Birthdays/Years Worked</p>
+                            </div>
+                            <div class="pull-right col-md-2 col-sm-3" >
+                                <br>Number Of Employees: {{numofEmployees}}
+                            </div>
+                            <div class="content table-responsive table-full-width">
+
+							    <table>  
+        <tr>  
+            <td>  
+                Select Employee  &nbsp;
+            </td>  
+            <td>  
+                <select ng-model="studentId" ng-change="studentChange(studentId)">  
+<option data-ng-repeat="st in students" value="{{st.user.id}}">{{st.user.first_name}} {{st.user.last_name}}</option>  
+</select>  
+            </td>  
+        </tr>  
+    </table>  
+  
+    <br />  
+  
+    <div id="container"></div>  
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+

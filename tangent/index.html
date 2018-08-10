@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>TanGenT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/fav.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/fav.png">
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body style="background-image: url('assets/img/bees2.jpg');background-repeat: no-repeat;background-size: cover;">
+  
+<!-- Mixins-->
+<!--dmatangany@yahoo.com-->
+<div class="pen-title">
+  <h1 style="color: #000">TanGenT ERP</h1>
+</div>
+
+<div class="container">
+  <div class="card" style="opacity: 0.7;"></div>
+  <div class="card" style="opacity: 0.7;">
+    <h1 class="title">Sign in</h1>
+    
+      <div class="input-container">
+        <input type="text" id="Username" required="required"/>
+        <label for="Username">Username</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" id="Password" required="required"/>
+        <label for="Password">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <button onclick="login()">Login</button>
+      </div>
+      
+    
+  </div>
+  
+</div>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+   <script>
+       function login(){
+		var email=document.getElementById("Username").value.trim();
+		var password=document.getElementById("Password").value.trim();
+		
+		var loginData = {
+				grant_type: 'password',
+				username: email,
+				password: password
+			};
+
+			$.ajax({
+				type: 'POST',
+				url: 'http://staging.tangent.tngnt.co/api-token-auth/',
+				data: loginData,
+				success: function(result,status,xhr){
+					console.log(result);
+					var resx = JSON.stringify(result);
+					var n = resx.indexOf("token");
+					//alert("tox: " + result.token);
+					//alert("tox: " + resx.substring(n+5));
+					sessionStorage.User=result.token;
+					window.location="home.html";
+				},
+				error: function(xhr,status,error){
+					console.log(status);
+					alert("error");
+				}
+				
+				
+			})
+	 }
+
+   </script>
+    
+
+</body>
+</html>

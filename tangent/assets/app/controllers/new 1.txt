@@ -1,0 +1,23 @@
+Hi Andre
+
+Good day.
+
+I am doing the assignment today.
+
+I see I have a choice of the technology to use.
+
+Since look and feel is important, I have decided to use an ANGULAR front end.
+
+I usually connect it to a Java(JWT) web service or .NET [webapi] web service backend.
+
+In this case, I just connect it to your service.
+
+I am using high charts for graphics. I can also use Microsoft BI.
+
+Let me know if this is cool.
+
+Many thanks.
+
+Regards
+
+Davison
