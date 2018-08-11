@@ -1,24 +1,25 @@
-app.controller("editRelationChartController", function ($scope, Getter, Post, $window, $state, Edit, $stateParams) {
+app.controller("editRelationChartCtrl", function ($scope, Getter, Post, $window, $state, Edit, $stateParams) {
     $.LoadingOverlay("show");
    $(".tab").removeClass("active");
     $("#relationchart").addClass("active");
     $scope.studentId = $stateParams.id;	
     $scope.studentname = null;	
+	 $scope.employeedata = [];
 	//alert("editChart: " + $stateParams.id);	
     $scope.numofEmployees = $stateParams.numofemployees;	
     $scope.students = [];
     $scope.deletedRelationChart = null;
-	Getter.getData("api/employee/?user=" + $scope.studentId ).then(function (d) {
+	Getter.getData("api/employee/?user=" + $scope.studentId).then(function (d) {
 	//alert("getChart: " + $stateParams.id);	
-    $scope.studentMarks =d;    
+    $scope.employeedata =d;    
 	$.LoadingOverlay("hide");	
-	$scope.studentname = $scope.studentMarks[0].user.first_name + " " + $scope.studentMarks[0].user.last_name;    
+	$scope.studentname = $scope.employeedata[0].user.first_name + " " + $scope.employeedata[0].user.last_name;    
     Highcharts.chart('container', {    
         chart: {    
             type: 'line'    
         },    
         title: {    
-            text: 'Relating: Age / Birthday / Years Worked',    
+            text: 'Relating: Age / Days-To-Birthday / Years Worked',    
             x: -20 //center    
         },    
         subtitle: {    
@@ -42,8 +43,8 @@ app.controller("editRelationChartController", function ($scope, Getter, Post, $w
             borderWidth: 0    
         },    
         series: [{    
-            name: $scope.studentMarks[0].user.first_name,    
-            data: [$scope.studentMarks[0].days_to_birthday, $scope.studentMarks[0].age, $scope.studentMarks[0].years_worked]    
+            name: $scope.employeedata[0].user.first_name,    
+            data: [$scope.employeedata[0].days_to_birthday, $scope.employeedata[0].age, $scope.employeedata[0].years_worked]    
         }]    
     }); 
 });    

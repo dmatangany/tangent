@@ -8,8 +8,6 @@ app.service('URL',[function(){
 app.service('Getter', ['$http', '$window', 'URL', function ($http, $window, URL) {
     this.getData = function (uri) {
         var token = $window.sessionStorage.getItem("User");
-		//token = "2a3d1af2f3f6d1cddaa3012c1c465fcbdffa3678";
-//alert("token: " + token);
         var config = { headers:
 				{ "Authorization": "Token " + token,
 				    'content-type': 'application/json'

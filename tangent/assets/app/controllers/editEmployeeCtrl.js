@@ -1,4 +1,4 @@
-app.controller("editEmployeeController", function ($scope, Getter, Post, $state, $window, $stateParams, Edit, Delete) {
+app.controller("editEmployeeCtrl", function ($scope, Getter, Post, $state, $window, $stateParams, Edit, Delete) {
     $.LoadingOverlay("show");
     $scope.employeeId = $stateParams.id;
     $scope.birthdays = [];

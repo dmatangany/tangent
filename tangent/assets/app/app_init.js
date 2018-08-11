@@ -1,14 +1,5 @@
 var app = angular.module("myApp", ['ui.router']);
 
-app.run(function ($window) { // instance-injector
-    
-    if ($window.sessionStorage.getItem("User") == null) {
-       $window.location.href="index.html";
-        
-
-    }
-});
-
 app.config(function ($stateProvider, $urlRouterProvider) {
 
     // config loader
@@ -52,13 +43,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         controller: "myprofileController"
     })
 
-    .state('createRelationChart', {
-        url: "/createRelationChart",
-        templateUrl: "assets/templates/createRelationChart.html",
-        controller: "createRelationChartController"
-    })
-
-    .state('employee', {
+     .state('employee', {
         url: "/employee/{id}",
         templateUrl: "assets/templates/employee.html",
         controller: "viewEmployeeController"
@@ -67,7 +52,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('editEmployee', {
         url: "/editEmployee/{id}",
         templateUrl: "assets/templates/editEmployee.html",
-        controller: "editEmployeeController"
+        controller: "editEmployeeCtrl"
     })
 
     .state('relationchart', {
@@ -79,13 +64,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('editRelationChart', {
         url: "/editrelationchart/{id}",
         templateUrl: "assets/templates/editRelationChart.html",
-        controller: "editRelationChartController"
-    })
-
-    .state('editOrder', {
-        url: "/editOrder/{id}/{orderNumber}",
-        templateUrl: "assets/templates/editOrder.html",
-        controller: "editOrderCtrl"
+        controller: "editRelationChartCtrl"
     })
 
 });

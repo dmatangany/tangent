@@ -27,7 +27,7 @@ app.controller("relationchartsController", function ($scope, Getter, Delete, $st
             type: 'line'    
         },    
         title: {    
-            text: 'Relating: Age / Birthday / Years Worked',    
+            text: 'Relating: Age / Days-To-Birthday / Years Worked',    
             x: -20 //center    
         },    
         subtitle: {    
