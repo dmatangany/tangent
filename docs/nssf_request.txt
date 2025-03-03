@@ -1,0 +1,42 @@
+curl --location 'https://localhost:8243/utility_biller_host/api/singlegate' \
+--header 'Content-Type: application/json' \
+--header 'Soap;' \
+--data-raw '{
+    "ownername": "nssf",
+    "protocoltype": "soap",
+    "httpoperation": "POST",
+    "secmode": "custom_string_encryption",
+    "enckey": "",
+    "encfields": "api_key, transaction_number",
+    "encvalues": "UATHFv30V2HB@W0e#bKsNuGSo",
+    "sectitle": "signature",
+    "secvalue": "",
+    "sectarget": "field",
+    "actiontype": "sha256",
+    "xmlns": "http://www.talend.org/service/",
+    "xmlnsoap": "http://schemas.xmlsoap.org/soap/envelope",
+    "xmlnsoapprefix": "soapenv",
+    "xmlcs": "http://www.talend.org/service/",
+    "xmlcsprefix": "ser",
+    "wsoapaction": "http://www.talend.org/service/getTransactionRequest",
+    "wsoapto": "http://192.168.193.50:8040/services/RegBANK",
+    "toplevel": "getTransactionRequest",
+    "childnode": "",
+    "api_user": "api_user_nssf",
+    "api_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwNjExMzEyMDUzIiwibmFtZSI6ImFic2F1Z2FuZGEiLCJpYXQiOjE3MzA5NjY4NDV9.8B6aYY-FYRfqxAGjnHbMfp26DjTRte0lINYkR4cLBYE",
+    "data": [
+        {
+            "name": "api_key",
+            "value": "BARC"
+        },
+        {
+            "name": "signature",
+            "value": "x"
+        },
+        {
+            "name": "transaction_number",
+            "value": "BAR000021"
+        }
+    ],
+    "dataarray": []
+}'
